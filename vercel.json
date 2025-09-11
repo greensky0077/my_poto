@@ -3,11 +3,6 @@
   "buildCommand": "yarn build",
   "outputDirectory": "dist",
   "installCommand": "yarn install",
-  "functions": {
-    "app/api/**/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
