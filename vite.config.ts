@@ -26,6 +26,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: [],
+      input: path.resolve(process.cwd(), "index.html"),
     },
     target: "esnext",
     outDir: "dist",
