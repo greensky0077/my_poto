@@ -11,10 +11,16 @@ export default defineConfig({
     svgr(),
   ],
   resolve: {
-    alias: {
-      "@": path.resolve(process.cwd(), "src"),
-      "@public": path.resolve(process.cwd(), "public"),
-    },
+    alias: [
+      {
+        find: "@",
+        replacement: path.resolve(process.cwd(), "src"),
+      },
+      {
+        find: "@public",
+        replacement: path.resolve(process.cwd(), "public"),
+      },
+    ],
   },
   css: {
     preprocessorOptions: {
@@ -32,6 +38,7 @@ export default defineConfig({
     outDir: "dist",
     assetsDir: "assets",
     sourcemap: false,
+    minify: "esbuild",
   },
   server: {
     fs: {
@@ -41,5 +48,8 @@ export default defineConfig({
   base: "/",
   optimizeDeps: {
     include: ["react", "react-dom"],
+  },
+  esbuild: {
+    target: "esnext",
   },
 });
