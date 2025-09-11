@@ -11,10 +11,16 @@ export default defineConfig({
     svgr(),
   ],
   resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-      "@public": fileURLToPath(new URL("./public", import.meta.url)),
-    },
+    alias: [
+      {
+        find: "@",
+        replacement: fileURLToPath(new URL("./src", import.meta.url)),
+      },
+      {
+        find: "@public",
+        replacement: fileURLToPath(new URL("./public", import.meta.url)),
+      },
+    ],
   },
   css: {
     preprocessorOptions: {
@@ -27,5 +33,16 @@ export default defineConfig({
     rollupOptions: {
       external: [],
     },
+    commonjsOptions: {
+      include: [/node_modules/],
+    },
+    target: "esnext",
+    minify: "esbuild",
+  },
+  optimizeDeps: {
+    include: ["react", "react-dom"],
+  },
+  esbuild: {
+    target: "esnext",
   },
 });
