@@ -30,8 +30,8 @@ export const featuredProjects: Project[] = [
   {
     title: "Blockchain NFT Staking & Rewards App",
     description: "Created a full-stack NFT staking platform with smart contracts, reward distribution, and governance features. Built with React, Solidity, and Web3 integration for seamless blockchain interactions.",
-    source: "https://github.com/elliot-dev/nft-staking-app",
-    demo: "https://nft-staking.elliot.dev",
+    source: "https://github.com/greensky0077/solana-mpl-core-nft-staking",
+    demo: "https://nft-staking-contract.thirdweb-example.com/",
     language: "TypeScript",
     platform: "github",
     interactions: {
