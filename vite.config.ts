@@ -1,7 +1,7 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
-import { fileURLToPath, URL } from "node:url";
+import path from "path";
 
 export default defineConfig({
   plugins: [
@@ -11,16 +11,10 @@ export default defineConfig({
     svgr(),
   ],
   resolve: {
-    alias: [
-      {
-        find: "@",
-        replacement: fileURLToPath(new URL("./src", import.meta.url)),
-      },
-      {
-        find: "@public",
-        replacement: fileURLToPath(new URL("./public", import.meta.url)),
-      },
-    ],
+    alias: {
+      "@": path.resolve(process.cwd(), "src"),
+      "@public": path.resolve(process.cwd(), "public"),
+    },
   },
   css: {
     preprocessorOptions: {
@@ -33,16 +27,11 @@ export default defineConfig({
     rollupOptions: {
       external: [],
     },
-    commonjsOptions: {
-      include: [/node_modules/],
+    target: "esnext",
+  },
+  server: {
+    fs: {
+      strict: false,
     },
-    target: "esnext",
-    minify: "esbuild",
-  },
-  optimizeDeps: {
-    include: ["react", "react-dom"],
-  },
-  esbuild: {
-    target: "esnext",
   },
 });
