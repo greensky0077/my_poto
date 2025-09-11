@@ -26,13 +26,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: [],
-      input: {
-        main: path.resolve(process.cwd(), "index.html"),
-      },
     },
     target: "esnext",
     outDir: "dist",
     assetsDir: "assets",
+    sourcemap: false,
   },
   server: {
     fs: {
@@ -40,4 +38,7 @@ export default defineConfig({
     },
   },
   base: "/",
+  optimizeDeps: {
+    include: ["react", "react-dom"],
+  },
 });
