@@ -1,6 +1,7 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
+import path from "path";
 
 export default defineConfig({
   plugins: [
@@ -10,10 +11,10 @@ export default defineConfig({
     svgr(),
   ],
   resolve: {
-    alias: [
-      { find: "@", replacement: "/src" },
-      { find: "@public", replacement: "/public" },
-    ],
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+      "@public": path.resolve(__dirname, "./public"),
+    },
   },
   css: {
     preprocessorOptions: {
