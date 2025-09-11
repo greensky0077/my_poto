@@ -26,12 +26,18 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: [],
+      input: {
+        main: path.resolve(process.cwd(), "index.html"),
+      },
     },
     target: "esnext",
+    outDir: "dist",
+    assetsDir: "assets",
   },
   server: {
     fs: {
       strict: false,
     },
   },
+  base: "/",
 });

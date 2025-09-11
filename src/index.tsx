@@ -4,7 +4,7 @@ import Providers from "@/Providers";
 import { RouterProvider } from "react-router-dom";
 import router from "@/router";
 
-import "./app.global.scss";
+import "/src/app.global.scss";
 
 if (import.meta.env.VITE_GA_MEASUREMENT_ID) {
   ReactGA.initialize(import.meta.env.VITE_GA_MEASUREMENT_ID as string);
